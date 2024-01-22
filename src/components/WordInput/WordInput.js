@@ -14,6 +14,10 @@ function WordInput() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (word.length !== 5) {
+      return;
+    }
+
     // submits here
     console.log(word);
 
@@ -23,7 +27,14 @@ function WordInput() {
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
-      <input id="guess-input" type="text" value={word} onChange={handleInput} />
+      <input
+        required
+        id="guess-input"
+        type="text"
+        minLength={5}
+        value={word}
+        onChange={handleInput}
+      />
     </form>
   );
 }
