@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function WordInput() {
+function WordInput({ handleAddWord }) {
   const [word, setWord] = useState("");
 
   const handleInput = (e) => {
@@ -19,7 +19,7 @@ function WordInput() {
     }
 
     // submits here
-    console.log(word);
+    handleAddWord(word);
 
     setWord("");
   };
